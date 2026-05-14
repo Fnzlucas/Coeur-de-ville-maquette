@@ -6,6 +6,8 @@
 <title>Cœur de Ville — Présentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{font-family:'Manrope',sans-serif;background:#f4f6f9;color:#0f1923;-webkit-font-smoothing:antialiased;}
@@ -105,6 +107,48 @@ main{max-width:1100px;margin:0 auto;padding:0 24px;}
 .t-card.dark p{color:rgba(255,255,255,0.75);}
 .t-card.dark .n{color:rgba(255,255,255,0.5);}
 .t-card.dark .tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);}
+
+/* LA NUIT DE L'EVASION DU PAPE */
+.evasion{background:linear-gradient(155deg,#0a0e16 0%,#0f1923 45%,#1e2d44 100%);padding:64px 24px;position:relative;overflow:hidden;}
+.evasion::before{content:'';position:absolute;top:-80px;right:-60px;width:340px;height:340px;background:rgba(255,107,53,0.12);border-radius:50%;filter:blur(80px);}
+.evasion::after{content:'';position:absolute;bottom:-100px;left:-80px;width:300px;height:300px;background:rgba(59,91,219,0.15);border-radius:50%;filter:blur(80px);}
+.evasion-inner{max-width:1000px;margin:0 auto;position:relative;}
+.evasion-eyebrow{font-size:11px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#FF6B35;margin-bottom:16px;}
+.evasion-title{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-0.035em;line-height:1;color:#fff;margin-bottom:18px;}
+.evasion-intro{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;font-weight:500;max-width:660px;margin-bottom:44px;}
+.evasion-timeline{display:flex;flex-direction:column;gap:0;margin-bottom:32px;}
+.ev-step{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.ev-step:first-child{padding-top:0;}
+.ev-step:last-child{border-bottom:none;padding-bottom:0;}
+.ev-num{font-size:32px;font-weight:900;letter-spacing:-0.03em;color:rgba(255,107,53,0.85);flex-shrink:0;line-height:1;width:48px;}
+.ev-content{flex:1;}
+.ev-place{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:900;color:#fff;letter-spacing:-0.02em;margin-bottom:6px;}
+.ev-place .material-symbols-outlined{font-size:18px;color:#FF6B35;}
+.ev-content p{font-size:13px;color:rgba(255,255,255,0.62);line-height:1.65;font-weight:500;}
+.evasion-foot{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:10px 18px;width:fit-content;}
+.evasion-foot .material-symbols-outlined{font-size:15px;color:#4ade80;}
+.evasion-map-wrap{margin-bottom:24px;}
+.evasion-map-label{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:12px;}
+.evasion-map-label .material-symbols-outlined{font-size:16px;color:#FF6B35;}
+#evasionMap{width:100%;height:340px;border-radius:18px;border:1px solid rgba(255,255,255,0.12);overflow:hidden;background:#0f1923;z-index:1;}
+.ev-marker{background:linear-gradient(135deg,#FF6B35,#c2410c);color:#fff;width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,0.4);border:2px solid #fff;}
+.ev-marker span{transform:rotate(45deg);font-size:14px;font-weight:900;}
+.leaflet-popup-content-wrapper{border-radius:10px;}
+.leaflet-popup-content{font-family:'Manrope',sans-serif;font-size:12px;font-weight:600;margin:10px 14px;}
+.leaflet-popup-content b{font-weight:900;color:#FF6B35;}
+
+/* BANNIÈRE CO-ÉCRITURE */
+.coecrit{background:#fff;border:1px solid #e2e8f0;border-radius:22px;padding:32px;display:flex;gap:24px;align-items:flex-start;}
+.coecrit-icon{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#0f1923 0%,#3B5BDB 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.coecrit-icon .material-symbols-outlined{font-size:32px;color:#fff;}
+.coecrit-eyebrow{font-size:11px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#3B5BDB;margin-bottom:8px;}
+.coecrit-title{font-size:22px;font-weight:900;color:#0f1923;letter-spacing:-0.025em;line-height:1.2;margin-bottom:10px;}
+.coecrit-desc{font-size:14px;color:#475569;line-height:1.7;font-weight:500;margin-bottom:18px;}
+.coecrit-desc strong{color:#0f1923;font-weight:800;}
+.coecrit-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.coecrit-tag{display:flex;align-items:center;gap:6px;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:100px;padding:7px 14px;font-size:11px;font-weight:700;color:#374151;}
+.coecrit-tag .material-symbols-outlined{font-size:15px;color:#3B5BDB;}
+
 
 /* IMPACT ÉCONOMIQUE */
 .eco-hyp{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:22px 26px;margin-bottom:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
@@ -253,6 +297,9 @@ footer span{color:#3B5BDB;font-weight:800;}
   .team-card{grid-template-columns:1fr;text-align:left;}
   .price-grid{grid-template-columns:1fr;}
   .depl-list{grid-template-columns:1fr 1fr;}
+  .ev-step{gap:14px;}
+  .ev-num{width:36px;font-size:26px;}
+  .coecrit{flex-direction:column;gap:18px;}
   .timeline::before{left:24px;}
   .t-step{grid-template-columns:1fr;gap:0;padding-left:60px;}
   .t-dot{left:24px;transform:translateX(-50%);top:24px;}
@@ -508,6 +555,88 @@ footer span{color:#3B5BDB;font-weight:800;}
 
   </div>
 </section>
+
+<!-- INTRO LIEUX & ANECDOTES -->
+<section class="section">
+  <div class="section-eyebrow">— Lieux & anecdotes</div>
+  <h2 class="section-title">Les histoires réservées aux locaux, <em>enfin accessibles aux visiteurs</em>.</h2>
+  <p style="font-size:15px;color:#475569;line-height:1.7;font-weight:500;max-width:720px;">Légendes, secrets de ruelles, épisodes oubliés : chaque ville a des récits que seuls les habitants connaissent. Cœur de Ville les fait vivre — et le visiteur ne consulte plus une fiche, il traverse une histoire, là où elle s'est déroulée.</p>
+  <p style="font-size:13px;color:#94a3b8;line-height:1.6;font-weight:600;margin-top:14px;">Ci-dessous, un exemple de ce que Cœur de Ville peut produire pour le Grand Avignon.</p>
+</section>
+
+<!-- LA NUIT DE L'EVASION DU PAPE -->
+<section class="evasion">
+  <div class="evasion-inner">
+    <div class="evasion-eyebrow">— Exemple de parcours immersif · Avignon</div>
+    <h2 class="evasion-title">La nuit de l'évasion du pape</h2>
+    <p class="evasion-intro">11 mars 1403. Après cinq ans de siège, le pape Benoît XIII s'apprête à fuir le Palais des Papes. Une ville hostile à traverser. Une barque qui attend. Le Rhône pour seule issue. Cœur de Ville fait revivre cette nuit au visiteur — lieu par lieu, là où tout s'est joué.</p>
+
+    <div class="evasion-timeline">
+
+      <div class="ev-step">
+        <div class="ev-num">01</div>
+        <div class="ev-content">
+          <div class="ev-place"><span class="material-symbols-outlined">location_on</span>Le Palais des Papes</div>
+          <p>Cinq années enfermé, assiégé, abandonné des siens. Cette nuit-là, le pape quitte sa chambre en silence. L'évasion commence.</p>
+        </div>
+      </div>
+
+      <div class="ev-step">
+        <div class="ev-num">02</div>
+        <div class="ev-content">
+          <div class="ev-place"><span class="material-symbols-outlined">location_on</span>Les ruelles d'Avignon</div>
+          <p>Traverser, dans le noir, une ville entière qui le veut prisonnier. Gagner les remparts sans être reconnu. Attendre l'ouverture des portes.</p>
+        </div>
+      </div>
+
+      <div class="ev-step">
+        <div class="ev-num">03</div>
+        <div class="ev-content">
+          <div class="ev-place"><span class="material-symbols-outlined">location_on</span>Les berges du Rhône</div>
+          <p>Une barque dissimulée sur la rive. Le pape embarque avec ses derniers fidèles. Le courant l'emporte loin d'Avignon — il n'y reviendra jamais.</p>
+        </div>
+      </div>
+
+      <div class="ev-step">
+        <div class="ev-num">04</div>
+        <div class="ev-content">
+          <div class="ev-place"><span class="material-symbols-outlined">location_on</span>Châteaurenard</div>
+          <p>L'aube. Le pape touche terre, libre. Coup de théâtre : en quelques jours, cardinaux et Avignonnais viennent faire amende honorable.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="evasion-map-wrap">
+      <div class="evasion-map-label"><span class="material-symbols-outlined">map</span>Le tracé de l'évasion · 11 mars 1403</div>
+      <div id="evasionMap"></div>
+    </div>
+
+    <div class="evasion-foot">
+      <span class="material-symbols-outlined">verified</span>
+      Récit historique vérifié · co-construit avec les archives et historiens locaux · tracé GPS fourni
+    </div>
+  </div>
+</section>
+
+<!-- BANNIÈRE CO-ÉCRITURE -->
+<section class="section">
+  <div class="coecrit">
+    <div class="coecrit-icon"><span class="material-symbols-outlined">history_edu</span></div>
+    <div class="coecrit-content">
+      <div class="coecrit-eyebrow">— Une création sur mesure, commune par commune</div>
+      <h3 class="coecrit-title">Chaque parcours est co-écrit avec votre territoire.</h3>
+      <p class="coecrit-desc">L'évasion du pape n'est qu'un exemple. Pour chaque ville du Grand Avignon, Cœur de Ville mène un véritable travail de recherche : dépouillement des <strong>archives municipales et départementales</strong>, entretiens avec les <strong>historiens et sociétés savantes locales</strong>, recueil de la mémoire des habitants. Le résultat : des parcours-récits authentiques, sourcés, et profondément ancrés dans l'identité de votre commune.</p>
+      <div class="coecrit-tags">
+        <span class="coecrit-tag"><span class="material-symbols-outlined">inventory_2</span>Archives municipales & départementales</span>
+        <span class="coecrit-tag"><span class="material-symbols-outlined">groups</span>Historiens & sociétés savantes</span>
+        <span class="coecrit-tag"><span class="material-symbols-outlined">elderly</span>Mémoire des habitants</span>
+        <span class="coecrit-tag"><span class="material-symbols-outlined">fact_check</span>Contenus vérifiés & sourcés</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- IMPACT ÉCONOMIQUE -->
 <section class="section">
@@ -789,6 +918,38 @@ footer span{color:#3B5BDB;font-weight:800;}
 </footer>
 
 </main>
+
+<script>
+(function(){
+  var pts = [
+    {n:1, name:"Le Palais des Papes", desc:"Le pape quitte sa chambre en silence", lat:43.9509, lng:4.8076},
+    {n:2, name:"Les ruelles d'Avignon", desc:"Traverser la ville hostile vers les remparts", lat:43.9460, lng:4.8090},
+    {n:3, name:"Les berges du Rhône", desc:"La barque qui attend, le courant qui emporte", lat:43.9540, lng:4.7995},
+    {n:4, name:"Châteaurenard", desc:"L'aube, la liberté retrouvée", lat:43.8814, lng:4.8551}
+  ];
+  function initMap(){
+    var map = L.map('evasionMap',{scrollWheelZoom:false,zoomControl:true}).setView([43.917,4.83],12);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+      attribution:'&copy; OpenStreetMap, &copy; CARTO', maxZoom:19
+    }).addTo(map);
+    var latlngs = [];
+    pts.forEach(function(p){
+      latlngs.push([p.lat,p.lng]);
+      var icon = L.divIcon({
+        className:'', html:'<div class="ev-marker"><span>'+p.n+'</span></div>',
+        iconSize:[30,30], iconAnchor:[15,30], popupAnchor:[0,-30]
+      });
+      L.marker([p.lat,p.lng],{icon:icon}).addTo(map)
+        .bindPopup('<b>Étape '+p.n+'</b><br>'+p.name+'<br><span style="color:#64748b;font-weight:500;">'+p.desc+'</span>');
+    });
+    L.polyline(latlngs,{color:'#FF6B35',weight:3,opacity:0.85,dashArray:'8,6'}).addTo(map);
+    map.fitBounds(L.latLngBounds(latlngs).pad(0.18));
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initMap);
+  } else { initMap(); }
+})();
+</script>
 
 </body>
 </html>
