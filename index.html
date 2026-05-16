@@ -30,6 +30,12 @@ main{max-width:1100px;margin:0 auto;padding:0 24px;}
 .phone-screen iframe{width:330px;height:730px;border:none;display:block;transform:scale(0.648);transform-origin:top left;}
 
 /* EXECUTIVE SUMMARY */
+.contacts-bar{padding:32px 0 20px;}
+.contacts-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#3B5BDB;margin-bottom:14px;}
+.contacts-label .material-symbols-outlined{font-size:18px;}
+.contacts-list{display:flex;flex-wrap:wrap;gap:8px;}
+.contact-pill{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #e2e8f0;border-radius:100px;padding:8px 16px;font-size:13px;font-weight:700;color:#0f1923;letter-spacing:-0.01em;}
+.contact-pill .material-symbols-outlined{font-size:16px;color:#3B5BDB;}
 .summary{padding:56px 0 36px;}
 .summary-label{font-size:11px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#3B5BDB;margin-bottom:14px;}
 .summary-title{font-size:32px;font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:#0f1923;margin-bottom:14px;max-width:720px;}
@@ -148,6 +154,37 @@ main{max-width:1100px;margin:0 auto;padding:0 24px;}
 .coecrit-tags{display:flex;flex-wrap:wrap;gap:8px;}
 .coecrit-tag{display:flex;align-items:center;gap:6px;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:100px;padding:7px 14px;font-size:11px;font-weight:700;color:#374151;}
 .coecrit-tag .material-symbols-outlined{font-size:15px;color:#3B5BDB;}
+
+/* 3 ESPACES ADMINISTRATEURS */
+.admin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.admin-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;}
+.admin-card-head{padding:20px 22px 16px;border-bottom:1px solid #f1f5f9;display:flex;gap:12px;align-items:flex-start;}
+.admin-card.mairie .admin-card-head{background:linear-gradient(135deg,#f0f4ff 0%,#e0e9ff 100%);border-bottom-color:#dbe4ff;}
+.admin-card.office .admin-card-head{background:linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%);border-bottom-color:#ddd6fe;}
+.admin-card.commercant .admin-card-head{background:linear-gradient(135deg,#fff5f0 0%,#ffedd5 100%);border-bottom-color:#fed7aa;}
+.admin-card-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.admin-card-icon .material-symbols-outlined{font-size:22px;color:#fff;}
+.admin-card.mairie .admin-card-icon{background:#3B5BDB;}
+.admin-card.office .admin-card-icon{background:#7c3aed;}
+.admin-card.commercant .admin-card-icon{background:#FF6B35;}
+.admin-card-tag{font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:3px;}
+.admin-card.mairie .admin-card-tag{color:#3B5BDB;}
+.admin-card.office .admin-card-tag{color:#7c3aed;}
+.admin-card.commercant .admin-card-tag{color:#FF6B35;}
+.admin-card-head h3{font-size:17px;font-weight:900;color:#0f1923;letter-spacing:-0.02em;line-height:1;}
+.admin-card-desc{padding:16px 22px 12px;font-size:12px;color:#64748b;line-height:1.6;font-weight:500;}
+.admin-card-list{list-style:none;padding:0 22px 20px;margin:0;display:flex;flex-direction:column;gap:8px;}
+.admin-card-list li{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#374151;line-height:1.5;font-weight:600;}
+.admin-card-list li .material-symbols-outlined{font-size:16px;flex-shrink:0;margin-top:1px;}
+.admin-card.mairie .admin-card-list li .material-symbols-outlined{color:#3B5BDB;}
+.admin-card.office .admin-card-list li .material-symbols-outlined{color:#7c3aed;}
+.admin-card.commercant .admin-card-list li .material-symbols-outlined{color:#FF6B35;}
+
+.admin-foot{background:linear-gradient(135deg,#0f1923 0%,#1e3a5f 100%);border-radius:18px;padding:22px 26px;color:#fff;display:flex;align-items:center;gap:18px;position:relative;overflow:hidden;}
+.admin-foot::after{content:'';position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:rgba(74,222,128,0.15);border-radius:50%;filter:blur(50px);}
+.admin-foot .material-symbols-outlined{font-size:32px;color:#4ade80;flex-shrink:0;position:relative;}
+.admin-foot-title{font-size:16px;font-weight:900;letter-spacing:-0.015em;margin-bottom:4px;position:relative;}
+.admin-foot-desc{font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;line-height:1.55;position:relative;}
 
 
 /* IMPACT ÉCONOMIQUE */
@@ -300,6 +337,7 @@ footer span{color:#3B5BDB;font-weight:800;}
   .ev-step{gap:14px;}
   .ev-num{width:36px;font-size:26px;}
   .coecrit{flex-direction:column;gap:18px;}
+  .admin-grid{grid-template-columns:1fr;}
   .timeline::before{left:24px;}
   .t-step{grid-template-columns:1fr;gap:0;padding-left:60px;}
   .t-dot{left:24px;transform:translateX(-50%);top:24px;}
@@ -348,6 +386,18 @@ footer span{color:#3B5BDB;font-weight:800;}
 </section>
 
 <main>
+
+<!-- COMMUNES EN CONTACT -->
+<section class="contacts-bar">
+  <div class="contacts-label"><span class="material-symbols-outlined">handshake</span>Communes actuellement en contact avec Cœur de Ville</div>
+  <div class="contacts-list">
+    <div class="contact-pill"><span class="material-symbols-outlined">location_city</span>Avignon</div>
+    <div class="contact-pill"><span class="material-symbols-outlined">location_city</span>Villeneuve-lès-Avignon</div>
+    <div class="contact-pill"><span class="material-symbols-outlined">location_city</span>Rochefort-du-Gard</div>
+    <div class="contact-pill"><span class="material-symbols-outlined">location_city</span>Pujaut</div>
+    <div class="contact-pill"><span class="material-symbols-outlined">location_city</span>Sauveterre</div>
+  </div>
+</section>
 
 <!-- EXECUTIVE SUMMARY -->
 <section class="summary">
@@ -633,6 +683,87 @@ footer span{color:#3B5BDB;font-weight:800;}
         <span class="coecrit-tag"><span class="material-symbols-outlined">elderly</span>Mémoire des habitants</span>
         <span class="coecrit-tag"><span class="material-symbols-outlined">fact_check</span>Contenus vérifiés & sourcés</span>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3 ESPACES ADMINISTRATEURS -->
+<section class="section">
+  <div class="section-eyebrow">— Espaces administrateurs</div>
+  <h2 class="section-title">Trois espaces, <em>trois autonomies</em>.</h2>
+  <p style="font-size:15px;color:#475569;line-height:1.7;font-weight:500;max-width:720px;margin-bottom:32px;">Mairie, office de tourisme, commerçants partenaires : chacun dispose de son propre tableau de bord pour piloter sa partie de l'application en toute autonomie. Aucune dépendance à notre équipe pour les mises à jour du quotidien.</p>
+
+  <div class="admin-grid">
+
+    <!-- ESPACE MAIRIE -->
+    <div class="admin-card mairie">
+      <div class="admin-card-head">
+        <div class="admin-card-icon"><span class="material-symbols-outlined">account_balance</span></div>
+        <div>
+          <div class="admin-card-tag">Espace 01 · Pouvoir complet</div>
+          <h3>Mairie</h3>
+        </div>
+      </div>
+      <p class="admin-card-desc">Le pilote principal de l'application. Vos agents communaux disposent d'un contrôle total sur le contenu et la communication de la commune.</p>
+      <ul class="admin-card-list">
+        <li><span class="material-symbols-outlined">edit</span>Édition de tous les contenus (lieux, parcours, fiches)</li>
+        <li><span class="material-symbols-outlined">event</span>Gestion de l'agenda événementiel</li>
+        <li><span class="material-symbols-outlined">campaign</span>Notifications push illimitées</li>
+        <li><span class="material-symbols-outlined">warning</span>Alertes urgentes prioritaires</li>
+        <li><span class="material-symbols-outlined">verified_user</span>Validation des commerçants partenaires</li>
+        <li><span class="material-symbols-outlined">bar_chart</span>Statistiques temps réel</li>
+      </ul>
+    </div>
+
+    <!-- ESPACE OFFICE TOURISME / INSTITUTION -->
+    <div class="admin-card office">
+      <div class="admin-card-head">
+        <div class="admin-card-icon"><span class="material-symbols-outlined">info</span></div>
+        <div>
+          <div class="admin-card-tag">Espace 02 · Tourisme & culture</div>
+          <h3>Office de tourisme</h3>
+        </div>
+      </div>
+      <p class="admin-card-desc">Pour les institutions partenaires : offices de tourisme, musées, médiathèques. Pilotage de la partie culturelle et touristique.</p>
+      <ul class="admin-card-list">
+        <li><span class="material-symbols-outlined">tour</span>Création et publication de parcours</li>
+        <li><span class="material-symbols-outlined">menu_book</span>Mise à jour des fiches patrimoine</li>
+        <li><span class="material-symbols-outlined">event_note</span>Programmation des visites guidées</li>
+        <li><span class="material-symbols-outlined">history_edu</span>Ajout d'anecdotes & contenus historiques</li>
+        <li><span class="material-symbols-outlined">translate</span>Gestion des traductions multilingues</li>
+        <li><span class="material-symbols-outlined">notifications</span>Notifications culturelles</li>
+      </ul>
+    </div>
+
+    <!-- ESPACE COMMERÇANT -->
+    <div class="admin-card commercant">
+      <div class="admin-card-head">
+        <div class="admin-card-icon"><span class="material-symbols-outlined">storefront</span></div>
+        <div>
+          <div class="admin-card-tag">Espace 03 · Commerce local</div>
+          <h3>Commerçants partenaires</h3>
+        </div>
+      </div>
+      <p class="admin-card-desc">Chaque commerçant sélectionné dispose de son propre accès pour gérer sa fiche et animer sa relation avec les utilisateurs de l'app.</p>
+      <ul class="admin-card-list">
+        <li><span class="material-symbols-outlined">edit_note</span>Mise à jour de la fiche commerce</li>
+        <li><span class="material-symbols-outlined">photo_camera</span>Photos, menus, horaires</li>
+        <li><span class="material-symbols-outlined">flash_on</span>Création d'offres flash & réductions</li>
+        <li><span class="material-symbols-outlined">notifications_active</span>Jusqu'à 5 push mensuelles incluses</li>
+        <li><span class="material-symbols-outlined">analytics</span>Statistiques de fréquentation</li>
+        <li><span class="material-symbols-outlined">redeem</span>Gestion des récompenses fidélité</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- BANDEAU CLÉ -->
+  <div class="admin-foot">
+    <span class="material-symbols-outlined">lock_open</span>
+    <div>
+      <div class="admin-foot-title">Autonomie totale, zéro surcoût</div>
+      <div class="admin-foot-desc">Modifications illimitées, à n'importe quelle heure, sans intervention de notre équipe. Plus jamais de facture pour un simple changement d'horaire ou un événement à annoncer.</div>
     </div>
   </div>
 </section>
